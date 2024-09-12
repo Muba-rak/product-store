@@ -3,24 +3,25 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import SingleProduct from "./SingleProduct";
-import Loader from "./Loader";
-import { useFetch } from "../useFetch";
 
-const ProductSlide = () => {
-  const {
-    isLoading,
-    data: products,
-    isError,
-  } = useFetch("https://fake-store-api.mock.beeceptor.com/api/products");
+const ProductSlide = ({ products }) => {
+  // const {
+  //   isLoading,
+  //   data: products,
+  //   isError,
+  // } = useFetch("https://fake-store-api.mock.beeceptor.com/api/products");
 
   const settings = {
     dots: true,
-    infinite: true, // Changed to true for continuous sliding
+    infinite: true, // Allows continuous sliding
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
     arrows: true, // Ensure that arrows are enabled
+    autoplay: true, // Enables automatic sliding
+    autoplaySpeed: 1000, // Time in milliseconds between slides
+    pauseOnHover: true, // Pauses autoplay when hovering over the slide
     responsive: [
       {
         breakpoint: 1024,
@@ -48,13 +49,6 @@ const ProductSlide = () => {
       },
     ],
   };
-
-  if (isLoading) {
-    return <Loader />;
-  }
-  if (isError) {
-    return <h1>Error Fetching products</h1>;
-  }
 
   return (
     <div className="container my-5 py-5">

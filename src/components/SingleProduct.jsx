@@ -19,20 +19,20 @@ const SingleProduct = ({
           e.currentTarget.src = `https://www.rallis.com/Upload/Images/thumbnail/Product-inside.png`;
         }}
       />
-      <div className="d-flex justify-content-between align-items-center">
+      <div className="flex ">
         <h3>{name}</h3>
         <h3 className="fw-light">{brand} </h3>
       </div>
-      <div className="d-flex justify-content-between align-items-center">
+      <div className="flex">
         <p className="price">£ {price}</p>
-        <p className="fw-bold text-dark"> Discount: {discount}% </p>
+        <p> Discount: {discount}% </p>
       </div>
-      <p className="text-success">Rating : {rating}</p>
+      <p className="rating">Rating : {rating}</p>
 
       <p></p>
       <hr />
-      <div className="d-flex justify-content-between w-100">
-        <button className="d-flex justify-content-between align-items-center">
+      <div className="flex w-100">
+        <button className="flex">
           {" "}
           <MdOutlineShoppingCart />
           Add to Cart
